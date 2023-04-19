@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.3.js"></script>
+    <script>
+        $(function(){
+            // 이벤트 : 클라이언트가 페이지에서 수행하는 모든 동작
+
+            // $('input').bind('이벤트',function(){});
+            $('input').bind('click',function(){
+                //alert('제이쿼리 실행!');.
+            });
+
+            $('input').click(function(){
+                //alert('제이쿼리 실행22!');
+            });
+
+            // h2태그 클릭시 마다 "+"문자 추가 
+            $('h2').click(function(){
+                 $(this).html(function(idx,html){
+                     return html+"+";
+                 });
+                // $(this).append('+');
+            });
+
+            // 이미지태그 마우스 올렸을때 
+            // $('img').mouseover(function(){
+            //     $('img').attr("src","../img/balloon.jpg");
+            // });
+            // // 이미지태그 마우스 내렸을떄
+            // $('img').mouseout(function(){
+            //     $('img').attr('src','../img/coffee.jpg');
+            // });
+            // 체이닝 기법
+            $('img').mouseover(function(){
+                $('img').attr("src","../img/balloon.jpg");
+            }).mouseout(function(){
+                $('img').attr('src','../img/coffee.jpg');
+            });
+
+            $('textarea').keyup(function(){
+                // alert('입력');
+                var txtLength = $('textarea').val().length;
+                $('h3').html(" 글자수 : "+(200-txtLength));
+                // 사용자가 200자 이상 입력했을 경우 글자색 red
+                //               이하 입력했을 경우 글자색 black
+                if(200-txtLength >= 0 ){
+                    $('h3').css('color','black')
+                }else{
+                    $('h3').css("color",'red')
+                }
+            });
+
+        }); // jquery 끝
+
+    </script>
+</head>
+<body>
+    
+    <input type="button" value="버튼" onclick="alert('@@@');">
+    <h2>head-0</h2>
+    <h2>head-1</h2>
+    <h2>head-2</h2>
+    <hr>
+    <img src="../img/coffee.jpg" width="150">
+
+    <hr>
+    <h3> 글자수 : 200 </h3>
+    <textarea cols="20" rows="5"></textarea>
+
+
+</body>
+</html>

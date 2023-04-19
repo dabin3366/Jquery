@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.3.js"></script>
+    <script >
+        $(function(){
+            //alert("제이쿼리 준비 !");
+
+            // css() : css 속성접근 하는 함수
+            var c = $("h2").css('color');
+            //alert("글자색 : "+c); // rgb(0-255,0-255,0-255)
+
+            // h2대상의 글자색을 파랑 변경
+            $('h2').css('color','blue')
+            $('h2').css('color','rgb(20,255,255)')
+            $('h2').css('color','#900099')
+
+            // h2태그의 글자색을 모두 다른색
+            var colorArr = ['red','orange','yellow'];
+
+            // for(var i=0; i<3;i++){
+            //     $('h2').css('color',colorArr[i])
+            // }
+
+            $('h2').css('color',function(idx){
+                //alert(idx);
+                //return 'green';
+                return colorArr[idx];
+            })
+
+            // 속성을 여러개를 각각적용
+            $('h2').css('background',function(idx){
+                //alert(idx);
+                //return 'green';
+                return colorArr[idx];
+            })
+
+            $('h2').css({
+                color:"red",
+                background:"blue"
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h2> head-0 </h2>
+    <h2> head-1 </h2>
+    <h2> head-2 </h2>
+    <h2> head-3 </h2>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<people>
+	<person>
+		<name>홍길동</name>
+		<gender>남자</gender>
+		<addr>부산</addr>
+	</person>
+	<person>
+		<name>김학생</name>
+		<gender>여자</gender>
+		<addr>대구</addr>
+	</person>
+	<person>
+		<name>이학생</name>
+		<gender>남자</gender>
+		<addr>서울</addr>
+	</person>
+</people>

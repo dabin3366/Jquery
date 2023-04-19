@@ -1,0 +1,7 @@
+[
+	{ "name":"itwill1","age":20,"addr":"부산" },
+	{ "name":"itwill2","age":30,"addr":"서울" },
+	{ "name":"itwill3","age":40,"addr":"대구" },
+	{ "name":"itwill4","age":50,"addr":"울산" },
+	{ "name":"itwill5","age":70,"addr":"제주" }
+]	

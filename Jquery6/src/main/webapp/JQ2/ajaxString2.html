@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.3.js"></script>
+<script type="text/javascript">
+	
+	$(function() {
+		// 버튼클릭시
+		$('#btnSend').click(function() {
+			$.ajax({
+				url : "String2.jsp",
+				data : {'name' : $('.txt').val() },
+				success : function(item) {
+					// alert('성공');
+					// alert(item);
+					$('body').append(item);
+				}
+			});
+		});
+	});
+</script>
+
+</head>
+<body>
+	<h1> ajaxString2.html </h1>
+	
+	이름 : <input type="text" name="name" class="txt"> 
+	  <input type="button" value="전송" id="btnSend"> <br>
+	<hr>
+	ex) 처리된 이름정보는 ㅇㅇㅇ 입니다. <br>
+	
+</body>
+</html>

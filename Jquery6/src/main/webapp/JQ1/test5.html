@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../js/jquery-3.6.3.js"></script>
+    <script>
+        $(function(){
+            // html(), text()
+            var ht = $('h2').html();
+            // => 해당되는 요소중 제일 처음요소의 정보 
+            // alert(ht);
+            var tx = $('h2').text();
+            // => 해당되는 모든 요소를 가져옴
+            // alert(tx);
+
+            //////////////////////////////////////////////
+            $('h2').text('hello!');
+            $('h2').html('ITWILL');
+            // => 변경하려는 문자정보를 전달하면, 해당하는 모든요소의 값이 변경
+            //$('div').text('<h3>안녕하세요!</h3>');
+            // => 문자 그대로 화면에 표시
+
+            $('div').html('<h3>안녕하세요!</h3>');
+            // => 문자 표시(태그라면 요소를 적용 후 표시)
+
+            // 출력되는 요소의 크기를 모두 다르게 출력
+            $('div').html(function(idx,old){
+                //alert(idx+"/"+old);
+                return "<h"+(idx+1)+">안녕하세요!</h"+(idx+1)+">";
+            });
+
+            $('div').append(' Hello '); // 요소 뒤에 데이터 추가
+            $('div').prepend(' Hello2 '); // 요소 앞에 데이터 추가
+
+            // 테이블에 이름, 주소 추가
+            // $('table').append("<tr> <td>홍길동</td> <td>부산</td> </tr>");
+            
+            // 2차원 배열 => JSON 타입
+            var data = [
+                { name : "홍길동", addr : "부산"}, 
+                { name : "김학생", addr : "서울"}, 
+                { name : "이학생", addr : "제주"}, 
+                { name : "정학생", addr : "경기"}, 
+                { name : "박학생", addr : "강릉"} 
+            ];
+            // alert(date);
+            console.log(data);
+            console.log(data[0].name);
+
+            for(var i=0;i<data.length;i++){
+                $('table').append("<tr> <td>"+data[i].name+"</td> <td>"+data[i].addr+"</td> </tr>");
+            }
+            
+            // $(요소).each(function(){ 동작 })
+            $(data).each(function(idx,element){
+                // alert(idx + " / "+element.name);
+                $('table').append("<tr> <td>"+element.name+"</td> <td>"+element.addr+"</td> </tr>");
+                
+            });
+            // $.each(요소,function(){ 동작 })
+            $.each(data,function(idx,element){
+                $('table').append("<tr> <td>"+element.name+"</td> <td>"+element.addr+"</td> </tr>");
+            })
+            
+            
+        }); // jquery function
+
+    </script>
+</head>
+<body>
+    <h1> 태그의 값 변경하기 </h1>
+
+    <h2>head-0</h2>    
+    <h2>head-1</h2>    
+    <h2>head-2</h2>    
+    <hr>
+
+    <div>00</div>
+    <div>11</div>
+    <div>22</div>
+    <hr>
+
+    <table border="1">
+        <tr>
+            <td>이름</td>
+            <td>주소</td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

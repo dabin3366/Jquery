@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.3.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		
+		$.getJSON("list.jsp",function(data){
+			
+			$(data).each(function(idx,item){
+				$('table').append("<tr><td>"+item.id+"</td><td>"+item.email+"</td><td>"+item.regdate+"</td></tr>");
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<h1> jsonTest2.html </h1>
+	
+	<table border="1">
+		<tr>
+			<td>아이디</td>
+			<td>이메일</td>
+			<td>회원가입일</td>
+		</tr>
+	</table>
+</body>
+</html>

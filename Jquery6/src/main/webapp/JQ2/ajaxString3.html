@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.ajax({
+			url:"test.xml",
+			success:function(data){
+				// alert(data);
+				console.log(data);
+				
+				$(data).find('person').each(function(){
+					// alert(name);
+					var name = $(this).find('name').text();
+					var gender = $(this).find('gender').text();
+					var addr = $(this).find('addr').text();
+					
+					$('body').append("이름 : "+name+", 성별 : "+gender+", 주소 : "+addr+"<br>");
+					$('table').append("<tr><td>"+name+"</td><td>"+gender+"</td><td>"+addr+"</td></tr>")
+				});
+			}
+		});
+	});
+	
+	$(function(){
+		$.ajax({
+			url:"전국종량제봉투가격표준데이터.xml",
+			success:function(data){
+				$(data).find('record').each(function(){
+					var tmp1 = $(this).find('시군구명').text();
+					if(tmp1 == '부산진구'){
+						var tmp2 = $(this).find('_10ℓ가격').text();
+						//alert(tmp2);
+						$('body').append(" 부산진구 종량봉투 10L 가격은 : "+tmp2+"원 입니다. <br>")
+					}
+				});
+			}
+		});
+		
+		
+		
+		$.ajax({
+			url:"http://apis.data.go.kr/6260000/AttractionService/getAttractionKr",
+			success:function(data){
+				alert("ddd");
+				console.log(data);
+			}
+		});
+	});
+	
+	
+</script>
+	<!-- text.xml 데이터를 가져와서 화면에 출력(비동기방식) -->
+</head>
+<body>
+	<h1> ajaxString3.html </h1>
+	
+	<h2> XML(extensible Markup Language) : 확장가능한 마크업 언어 </h2>
+	html 형태와 유사함. 태그의 이름을 사용하여 정보를 저장하는 언어(HTML 태그와 다름)
+	* xml 거의 모든 플랫폼에서 동작, 데이터 구조로 표시(복잡)
+	<hr>
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td>성별</td>
+			<td>주소</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<h2> 부산진구 종량제 봉투 가격 출력 </h2>
+	
+	
+</body>
+</html>

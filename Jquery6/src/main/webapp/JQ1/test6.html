@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 이미지 가로길이 250
+            $('img').attr('width',250);
+ 
+            // setInterval(실행,실행주기);
+            // var stop = setInterval(function(){
+            //     //console.log("hello");
+            //     $('body').append($('img').first());
+            // },100);
+
+            // $('input').click(function(){
+            //     clearInterval(stop);
+            // });
+
+            // 해당요소에 class명을 추가
+
+            $('h2').each(function(idx){
+               // alert(idx);
+               // 대상.addClass(클래스명);
+               $(this).addClass('high_'+idx);
+               // this : 이벤트가 발생한 요소 == 나(객체)
+            });
+
+
+        });
+
+
+    </script>
+<style>
+    h2{
+        color: blue;
+    }
+
+    .high_0{ background-color: aqua;}
+    .high_1{ background-color: blueviolet;}
+    .high_2{ background-color: crimson;}
+    .high_3{ background-color: coral;}
+    .high_4{ background-color: aquamarine;}
+
+</style>
+</head>
+<body>
+    <input type="button" value="멈춤" >
+    
+    <hr>
+    <img src="../img/pic1.jpg" />
+    <img src="../img/pic2.jpg" />
+    <img src="../img/pic3.jpg" />
+    <hr>
+
+    <!-- <h2 class="high_0">item - 0</h2>
+    <h2 class="high_1">item - 1</h2>
+    <h2 class="high_2">item - 2</h2>
+    <h2 class="high_3">item - 3</h2>
+    <h2 class="high_4">item - 4</h2> -->
+
+    <h2>item - 0</h2>
+    <h2>item - 1</h2=>
+    <h2>item - 2</h2>
+    <h2>item - 3</h2>
+    <h2>item - 4</h2>
+
+
+
+
+</body>
+</html>
